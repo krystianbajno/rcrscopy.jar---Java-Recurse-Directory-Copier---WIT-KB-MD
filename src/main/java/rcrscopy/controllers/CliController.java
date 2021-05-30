@@ -1,9 +1,11 @@
 package rcrscopy.controllers;
 
+import java.io.IOException;
+
 import rcrscopy.config.parsers.ArgumentsConfig;
 import rcrscopy.config.parsers.ArgumentsParser;
 import rcrscopy.copiers.Copier;
-import rcrscopy.eexceptions.InvalidArgumentsException;
+import rcrscopy.exceptions.InvalidArgumentsException;
 
 /**
  * 
@@ -30,6 +32,7 @@ public class CliController {
 	public void handle() {	
 		//validate
 		ArgumentsConfig copyContext = null;
+		
 		try {
 			copyContext = this.argumentsParser.parse();
 		} catch (InvalidArgumentsException e) {
@@ -37,8 +40,13 @@ public class CliController {
 			return;
 		}
 		
-		// dispatch jobs
-		copier.copy(copyContext);
+		// dispatch file copy jobs
+		try {
+			copier.copy(copyContext);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	private void displayHelp() {

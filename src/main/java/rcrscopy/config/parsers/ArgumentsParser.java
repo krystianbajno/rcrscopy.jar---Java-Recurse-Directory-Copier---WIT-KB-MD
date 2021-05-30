@@ -1,7 +1,9 @@
 package rcrscopy.config.parsers;
 
+import java.io.File;
+
 import rcrscopy.config.parsers.validators.ArgumentsValidator;
-import rcrscopy.eexceptions.InvalidArgumentsException;
+import rcrscopy.exceptions.InvalidArgumentsException;
 
 /**
  * 
@@ -40,7 +42,11 @@ public class ArgumentsParser {
 		String source = arguments[1];
 		String destination = arguments[2];
 		
-		ArgumentsConfig config = new ArgumentsConfig(source, destination, threadsCount);
+		ArgumentsConfig config = new ArgumentsConfig(
+			new File(source),
+			new File(destination),
+			threadsCount
+		);
 		
 		if (this.argumentsValidator.validate(config) == false) {
 			throw new InvalidArgumentsException();
