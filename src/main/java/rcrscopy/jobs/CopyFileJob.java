@@ -25,10 +25,10 @@ public class CopyFileJob {
 	 * @throws IOException 
 	 */
 	public void handle() throws IOException {
-		// Make parent directories if they exist
+		// Create parent directories if they don't exist
 		destination.getParentFile().mkdirs();
 		
-		// copy file
+		// Copy file
 		FileOutputStream outputStream = new FileOutputStream(destination);
 		Files.copy(source.toPath(), outputStream);
 	}
