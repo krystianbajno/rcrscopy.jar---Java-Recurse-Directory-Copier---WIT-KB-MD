@@ -1,4 +1,4 @@
-package scanners;
+package rcrscopy.scanners;
 
 import java.io.File;
 import java.io.IOException;

@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.util.List;
 
 import rcrscopy.config.parsers.ArgumentsConfig;
-import scanners.DirectoryRecursiveFileScanner;
+import rcrscopy.scanners.DirectoryRecursiveFileScanner;
 
 /**
  * 
