@@ -42,7 +42,6 @@ public class CliController {
 	}
 	
 	private void displayHelp() {
-		StringBuilder stringBuilder = new StringBuilder();
-		stringBuilder.append("[!] Usage: rcrscopy <source> <destination> <threads>");		
+		System.out.println("[!] Usage: rcrscopy <source> <destination> <threads>");
 	}
 }
