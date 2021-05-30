@@ -5,7 +5,7 @@ import rcrscopy.config.parsers.validators.ArgumentsValidator;
 import rcrscopy.config.parsers.validators.DirectoryExistsChecker;
 import rcrscopy.controllers.CliController;
 import rcrscopy.copiers.Copier;
-import scanners.DirectoryRecursiveFileScanner;
+import rcrscopy.scanners.DirectoryRecursiveFileScanner;
 
 
 /**
