@@ -1,4 +1,4 @@
-package rcrscopy.eexceptions;
+package rcrscopy.exceptions;
 
 public class InvalidArgumentsException extends Exception {
 

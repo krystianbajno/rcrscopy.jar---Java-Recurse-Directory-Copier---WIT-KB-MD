@@ -1,5 +1,7 @@
 package rcrscopy.config.parsers;
 
+import java.io.File;
+
 /**
  * 
  * @author Krystian Bajno
@@ -7,8 +9,8 @@ package rcrscopy.config.parsers;
  */
 public class ArgumentsConfig {
 	private Integer threadsCount;
-	private String source;
-	private String destination;
+	private File source;
+	private File destination;
 	
 	/**
 	 * 
@@ -17,8 +19,8 @@ public class ArgumentsConfig {
 	 * @param threadsCount
 	 */
 	public ArgumentsConfig(
-		String source,
-		String destination,
+		File source,
+		File destination,
 		Integer threadsCount
 	) { 
 		this.source = source;
@@ -32,16 +34,16 @@ public class ArgumentsConfig {
 	public void setThreadsCount(Integer threadsCount) {
 		this.threadsCount = threadsCount;
 	}
-	public String getSource() {
+	public File getSource() {
 		return source;
 	}
-	public void setSource(String source) {
+	public void setSource(File source) {
 		this.source = source;
 	}
-	public String getDestination() {
+	public File getDestination() {
 		return destination;
 	}
-	public void setDestination(String destination) {
+	public void setDestination(File destination) {
 		this.destination = destination;
 	}	
 }
