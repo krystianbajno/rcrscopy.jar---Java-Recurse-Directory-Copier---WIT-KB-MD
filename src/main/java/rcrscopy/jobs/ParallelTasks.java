@@ -1,4 +1,4 @@
-package rcrscopy.copiers;
+package rcrscopy.jobs;
 
 import java.util.ArrayList;
 import java.util.Collection;

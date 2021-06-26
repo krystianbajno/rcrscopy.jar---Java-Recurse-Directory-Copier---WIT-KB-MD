@@ -1,9 +1,9 @@
-package rcrscopy.config.parsers;
+package rcrscopy.config;
 
 import java.io.File;
 
 /**
- * 
+ * ValueObject containing configuration for fileSource, fileDestination, threadsCount
  * @author Krystian Bajno
  *
  */
@@ -28,22 +28,24 @@ public class ArgumentsConfig {
 		this.threadsCount = threadsCount;
 	}
 	
+	/**
+	 * @return Integer
+	 */
 	public Integer getThreadsCount() {
 		return threadsCount;
 	}
-	public void setThreadsCount(Integer threadsCount) {
-		this.threadsCount = threadsCount;
-	}
+	
+	/**
+	 * @return File
+	 */
 	public File getSource() {
 		return source;
 	}
-	public void setSource(File source) {
-		this.source = source;
-	}
+	
+	/**
+	 * @return File
+	 */
 	public File getDestination() {
 		return destination;
 	}
-	public void setDestination(File destination) {
-		this.destination = destination;
-	}	
 }

@@ -3,51 +3,53 @@ package rcrscopy.config.parsers;
 
 import java.io.File;
 
-import rcrscopy.config.parsers.validators.ArgumentsValidator;
 import rcrscopy.exceptions.InvalidArgumentsException;
+import rcrscopy.config.ArgumentsConfig;
 
 /**
- * 
+ * Parse CLI arguments and build a ValueObject
  * @author Krystian Bajno
  * @author Mateusz Dygas
  *
  */
 public class ArgumentsParser {
-	private ArgumentsValidator argumentsValidator;
 	private String[] arguments;
-	private final int DefaultThreadsCount = 10;
+	
 	/**
-	 * 
-	 * @param argumentsValidator
+	 * Default threads count used in case optional argument is not filled
 	 */
-	public ArgumentsParser(String[] arguments, ArgumentsValidator argumentsValidator) {
+	private final int DefaultThreadsCount = 10;
+	
+	/**
+	 * @param arguments
+	 */
+	public ArgumentsParser(String[] arguments) {
 		this.arguments = arguments;
-		this.argumentsValidator = argumentsValidator;
 	}
 	
 	/**
-	 * 
+	 * Parse the arguments and return the ArgumentsConfig instance
 	 * @param arguments
-	 * @return
+	 * @return ArgumentsConfig
 	 * @throws Exception
 	 */
 	public ArgumentsConfig parse() throws Exception {
-		int threadsCount;
+		// Define default thread count
+		int threadsCount = DefaultThreadsCount;
 		
-		switch(arguments.length) {
-			case 0:
-			case 1:
-				throw new InvalidArgumentsException();
-			case 2:
-				threadsCount = DefaultThreadsCount;
-				break;
-			case 3:
-				threadsCount = tryParseInt(arguments[2]);
-				break;
-			default:
-				throw new InvalidArgumentsException();
+		// Handle insufficient argument count
+		if (arguments.length < 2) {
+			throw new InvalidArgumentsException("Not all required arguments are provided");
 		}
-
+		
+		// Try and parse number of threads
+		if (arguments.length > 2) {
+			threadsCount = tryParseInt(arguments[2]);
+		} else {
+			System.out.print(String.format("[*] Argument for number of threads not provided. Using default value of %s threads.\n", 
+					DefaultThreadsCount));
+		}
+		
 		String source = arguments[0];
 		String destination = arguments[1];
 		
@@ -56,23 +58,23 @@ public class ArgumentsParser {
 			new File(destination),
 			threadsCount
 		);
-		
-		if (this.argumentsValidator.validate(config) == false) {
-			throw new InvalidArgumentsException();
-		}
 
+		// return configuration
 		return config;
 	}
 
+	/**
+	 * Try and parse an integer. Return default in case of fail
+	 * @param numberOfThreadsArg
+	 * @return
+	 * @throws Exception
+	 */
 	private int tryParseInt(String numberOfThreadsArg) throws Exception {
-		if (numberOfThreadsArg.isEmpty() || numberOfThreadsArg == null)
-			throw new InvalidArgumentsException();
-			
 		try {			
 			return Integer.parseInt(arguments[2]);
 		}
 		catch(Exception ex) {
-			System.out.print(String.format(ex.getMessage() + " - Failed to parse an argument for number of threads. Using default value of %s threads.\n", 
+			System.out.print(String.format("[*]" + ex.getMessage() + " - Failed to parse an argument for number of threads. Using default value of %s threads.\n", 
 					DefaultThreadsCount));
 			
 			return DefaultThreadsCount;
