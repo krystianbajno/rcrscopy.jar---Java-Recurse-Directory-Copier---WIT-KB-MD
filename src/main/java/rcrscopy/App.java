@@ -17,7 +17,7 @@ public class App
 {
     public static void main(String[] args)
     {
-    	// Build dependencies
+    	// Build dependencies    	
     	DirectoryExistsChecker directoryExistsChecker = new DirectoryExistsChecker();
     	ArgumentsValidator argumentsValidator = new ArgumentsValidator(directoryExistsChecker);
     	ArgumentsParser argumentsParser = new ArgumentsParser(args, argumentsValidator);

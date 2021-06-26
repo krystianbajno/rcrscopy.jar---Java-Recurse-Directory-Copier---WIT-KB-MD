@@ -1,3 +1,4 @@
+
 package rcrscopy.config.parsers;
 
 import java.io.File;
@@ -8,11 +9,13 @@ import rcrscopy.exceptions.InvalidArgumentsException;
 /**
  * 
  * @author Krystian Bajno
+ * @author Mateusz Dygas
  *
  */
 public class ArgumentsParser {
 	private ArgumentsValidator argumentsValidator;
 	private String[] arguments;
+	private final int DefaultThreadsCount = 10;
 	/**
 	 * 
 	 * @param argumentsValidator
@@ -26,21 +29,27 @@ public class ArgumentsParser {
 	 * 
 	 * @param arguments
 	 * @return
-	 * @throws InvalidArgumentsException
+	 * @throws Exception
 	 */
-	public ArgumentsConfig parse() throws InvalidArgumentsException {
-		Integer threadsCount = 10;
-
-		if (arguments[1] == null || arguments[2] == null) {
-			throw new InvalidArgumentsException();
-		}
+	public ArgumentsConfig parse() throws Exception {
+		int threadsCount;
 		
-		if (arguments[3] != null) {
-			threadsCount = Integer.parseInt(arguments[3]);
+		switch(arguments.length) {
+			case 0:
+			case 1:
+				throw new InvalidArgumentsException();
+			case 2:
+				threadsCount = DefaultThreadsCount;
+				break;
+			case 3:
+				threadsCount = tryParseInt(arguments[2]);
+				break;
+			default:
+				throw new InvalidArgumentsException();
 		}
 
-		String source = arguments[1];
-		String destination = arguments[2];
+		String source = arguments[0];
+		String destination = arguments[1];
 		
 		ArgumentsConfig config = new ArgumentsConfig(
 			new File(source),
@@ -53,5 +62,20 @@ public class ArgumentsParser {
 		}
 
 		return config;
+	}
+
+	private int tryParseInt(String numberOfThreadsArg) throws Exception {
+		if (numberOfThreadsArg.isEmpty() || numberOfThreadsArg == null)
+			throw new InvalidArgumentsException();
+			
+		try {			
+			return Integer.parseInt(arguments[2]);
+		}
+		catch(Exception ex) {
+			System.out.print(String.format(ex.getMessage() + " - Failed to parse an argument for number of threads. Using default value of %s threads.\n", 
+					DefaultThreadsCount));
+			
+			return DefaultThreadsCount;
+		}		
 	}
 }
