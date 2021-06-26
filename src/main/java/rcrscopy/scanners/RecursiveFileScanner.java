@@ -14,15 +14,15 @@ import java.util.stream.Collectors;
  *
  */
 public class RecursiveFileScanner {
-	/**
-	 * Return a list of files in directory tree
-	 * @param directory
-	 * @return List<File>
-	 * @throws IOException
-	 */
-	public List<File> scan(File directory) throws IOException {
-		return Files.walk(Paths.get(directory.toString()))
-	        .map((path) -> path.toFile())
-	        .collect(Collectors.toList());
-	}
+    /**
+     * Return a list of files in directory tree
+     * @param directory
+     * @return List<File>
+     * @throws IOException
+     */
+    public List<File> scan(File directory) throws IOException {
+        return Files.walk(Paths.get(directory.toString()))
+            .map((path) -> path.toFile())
+            .collect(Collectors.toList());
+    }
 }

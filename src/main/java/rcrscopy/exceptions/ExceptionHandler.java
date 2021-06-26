@@ -5,17 +5,17 @@ package rcrscopy.exceptions;
  * @author Krystian Bajno
  */
 public class ExceptionHandler {
-	public static void handle(Exception e) {
-	    switch(e.getClass().getName()) {
-			case "rcrscopy.exceptions.InvalidArgumentsException":
-				if (!e.getMessage().isEmpty()) 
-					System.out.println("[!] " + e.getMessage());
-				
-				System.out.println("[!] Usage: rcrscopy <source> <destination> <threads>");
-				break;
-			default:
-				e.printStackTrace();
-				break;
-		}
-	}
+    public static void handle(Exception e) {
+        switch(e.getClass().getName()) {
+            case "rcrscopy.exceptions.InvalidArgumentsException":
+                if (!e.getMessage().isEmpty()) 
+                    System.out.println("[!] " + e.getMessage());
+                
+                System.out.println("[!] Usage: rcrscopy <source> <destination> <threads>");
+                break;
+            default:
+                e.printStackTrace();
+                break;
+        }
+    }
 }
