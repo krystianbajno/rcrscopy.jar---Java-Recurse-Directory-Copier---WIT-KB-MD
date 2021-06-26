@@ -35,7 +35,7 @@ public class CliController {
 		
 		try {
 			copyContext = this.argumentsParser.parse();
-		} catch (InvalidArgumentsException e) {
+		} catch (Exception e) {
 			this.displayHelp();
 			return;
 		}
@@ -43,8 +43,7 @@ public class CliController {
 		// dispatch file copy jobs
 		try {
 			copier.copy(copyContext);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
