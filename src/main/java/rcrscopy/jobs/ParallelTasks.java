@@ -9,6 +9,7 @@ import java.util.concurrent.Executors;
 /**
  * 
  * @author Mateusz Dygas
+ * @author Krystian Bajno
  *
  */
 

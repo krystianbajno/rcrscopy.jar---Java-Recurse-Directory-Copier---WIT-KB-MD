@@ -10,6 +10,7 @@ import java.util.stream.Collectors;
 
 /**
  * 
+ * @author Mateusz Dygas
  * @author Krystian Bajno
  *
  */

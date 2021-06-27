@@ -3,6 +3,7 @@ package rcrscopy.exceptions;
 /**
  * Handle exceptions, a basic exception handler
  * @author Krystian Bajno
+ * @author Mateusz Dygas
  */
 public class ExceptionHandler {
     public static void handle(Exception e) {
