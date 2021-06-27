@@ -34,6 +34,5 @@ public class App {
         } catch (Exception e) {
             ExceptionHandler.handle(e);
         }
-
     }
 }

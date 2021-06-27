@@ -9,6 +9,7 @@ import rcrscopy.exceptions.InvalidArgumentsException;
 /**
  * 
  * @author Krystian Bajno
+ * @author Mateusz Dygas
  */
 public class CliController {
     private ArgumentsParser argumentsParser;

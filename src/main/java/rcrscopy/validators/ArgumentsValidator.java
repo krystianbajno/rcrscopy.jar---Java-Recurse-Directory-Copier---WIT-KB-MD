@@ -4,9 +4,11 @@ import rcrscopy.config.ArgumentsConfig;
 
 /**
  * 
+ * @author Mateusz Dygas
  * @author Krystian Bajno
  *
  */
+
 public class ArgumentsValidator {
     /**
      * Validate arguments, else return error message

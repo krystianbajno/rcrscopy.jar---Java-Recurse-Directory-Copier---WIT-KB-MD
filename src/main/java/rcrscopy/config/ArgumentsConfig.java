@@ -5,6 +5,7 @@ import java.io.File;
 /**
  * ValueObject containing configuration for fileSource, fileDestination, threadsCount
  * @author Krystian Bajno
+ * @author Mateusz Dygas
  *
  */
 public class ArgumentsConfig {
