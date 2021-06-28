@@ -18,7 +18,7 @@ public class ArgumentsValidator {
     public String validate(ArgumentsConfig arguments) {
         StringBuilder message = new StringBuilder();
         
-        if (arguments.getThreadsCount().intValue() < 1) {
+        if (arguments.getThreadsCount() < 1) {
             message.append("Threads count invalid");
         }
         

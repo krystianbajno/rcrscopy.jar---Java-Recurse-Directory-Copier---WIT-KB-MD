@@ -9,7 +9,7 @@ import java.io.File;
  *
  */
 public class ArgumentsConfig {
-    private Integer threadsCount;
+    private int threadsCount;
     private File source;
     private File destination;
     
@@ -22,7 +22,7 @@ public class ArgumentsConfig {
     public ArgumentsConfig(
         File source,
         File destination,
-        Integer threadsCount
+        int threadsCount
     ) { 
         this.source = source;
         this.destination = destination;
@@ -32,7 +32,7 @@ public class ArgumentsConfig {
     /**
      * @return Integer
      */
-    public Integer getThreadsCount() {
+    public int getThreadsCount() {
         return threadsCount;
     }
     
