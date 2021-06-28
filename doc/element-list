@@ -1,0 +1,9 @@
+rcrscopy
+rcrscopy.config
+rcrscopy.config.parsers
+rcrscopy.controllers
+rcrscopy.copiers
+rcrscopy.exceptions
+rcrscopy.jobs
+rcrscopy.scanners
+rcrscopy.validators

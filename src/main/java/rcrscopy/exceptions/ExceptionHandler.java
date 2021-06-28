@@ -6,6 +6,10 @@ package rcrscopy.exceptions;
  * @author Mateusz Dygas
  */
 public class ExceptionHandler {
+	/**
+	 * 
+	 * @param e - catched exception
+	 */
     public static void handle(Exception e) {
         switch(e.getClass().getName()) {
             case "rcrscopy.exceptions.InvalidArgumentsException":

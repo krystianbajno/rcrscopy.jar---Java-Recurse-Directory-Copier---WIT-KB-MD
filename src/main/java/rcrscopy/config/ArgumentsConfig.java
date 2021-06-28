@@ -15,9 +15,9 @@ public class ArgumentsConfig {
     
     /**
      * 
-     * @param source
-     * @param destination
-     * @param threadsCount
+     * @param source - ssource path
+     * @param destination - target path 
+     * @param threadsCount - number of threads for files copy process
      */
     public ArgumentsConfig(
         File source,

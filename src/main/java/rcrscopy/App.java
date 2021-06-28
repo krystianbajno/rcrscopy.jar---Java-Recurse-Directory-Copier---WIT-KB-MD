@@ -8,7 +8,7 @@ import rcrscopy.exceptions.ExceptionHandler;
 import rcrscopy.scanners.RecursiveFileScanner;
 
 /**
- * 
+ * Entry point for the App
  * @author Krystian Bajno 18530
  * @author Mateusz Dygas 17663
  *

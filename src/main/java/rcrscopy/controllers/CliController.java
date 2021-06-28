@@ -7,7 +7,7 @@ import rcrscopy.copiers.Copier;
 import rcrscopy.exceptions.InvalidArgumentsException;
 
 /**
- * 
+ * A controller handling the business logic - use services, parse, validate, dispatch
  * @author Krystian Bajno
  * @author Mateusz Dygas
  */
@@ -17,9 +17,9 @@ public class CliController {
     private Copier copier;
     
     /**
-     * A controller handling the business logic - use services, parse, validate, dispatch
-     * @param argumentsParser
-     * @param copier
+     * @param argumentsParser - utility class for parsing arguments provided by the user
+     * @param argumentsValidator - utility class validating paths
+     * @param copier - main class for files copying, dispatching threads and scanning source path 
      */
     public CliController(
         ArgumentsParser argumentsParser,
@@ -33,7 +33,7 @@ public class CliController {
     
     /**
      * 
-     * @throws Exception
+     * @throws Exception - invalid argument
      */
     public void handle() throws Exception {    
         // Parse arguments
