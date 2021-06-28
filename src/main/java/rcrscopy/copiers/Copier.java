@@ -12,7 +12,7 @@ import rcrscopy.jobs.ParallelTasks;
 import rcrscopy.scanners.RecursiveFileScanner;
 
 /**
- * 
+ * Main class for files copying
  * @author Krystian Bajno
  * @author Mateusz Dygas
  *
@@ -22,15 +22,16 @@ final public class Copier {
 
     /**
      * Constructor for threads / copier services
-     * @param directoryRecursiveFileScanner
+     * @param fileScanner - utility class for scanning source path
      */
     public Copier(RecursiveFileScanner fileScanner) {
         this.fileScanner = fileScanner;
     }
     
     /**
-     * @throws Exception 
      * 
+     * @param copyContext - context class with variables for copy process
+     * @throws Exception - IO exception
      */
     public void copy(ArgumentsConfig copyContext) throws Exception {
         // Scan source files and create flat map of these files

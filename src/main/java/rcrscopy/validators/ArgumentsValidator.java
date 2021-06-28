@@ -3,7 +3,7 @@ package rcrscopy.validators;
 import rcrscopy.config.ArgumentsConfig;
 
 /**
- * 
+ * Validates configuration arguments
  * @author Mateusz Dygas
  * @author Krystian Bajno
  *
@@ -12,8 +12,8 @@ import rcrscopy.config.ArgumentsConfig;
 public class ArgumentsValidator {
     /**
      * Validate arguments, else return error message
-     * @param arguments
-     * @return
+     * @param arguments - arguments provided by user, like source path and number of threads
+     * @return - validation result
      */
     public String validate(ArgumentsConfig arguments) {
         StringBuilder message = new StringBuilder();

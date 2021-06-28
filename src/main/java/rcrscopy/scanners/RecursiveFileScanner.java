@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 /**
- * 
+ * Recursively scans source directory for files used in the copy process
  * @author Mateusz Dygas
  * @author Krystian Bajno
  *
@@ -17,9 +17,9 @@ import java.util.stream.Collectors;
 public class RecursiveFileScanner {
     /**
      * Return a list of files in directory tree
-     * @param directory
-     * @return List<File>
-     * @throws IOException
+     * @param directory - source directory 
+     * @return List<File> - list of found files
+     * @throws IOException - IO exception
      */
     public List<File> scan(File directory) throws IOException {
         return Files.walk(Paths.get(directory.toString()))

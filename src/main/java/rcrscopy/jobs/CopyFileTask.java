@@ -16,8 +16,9 @@ public class CopyFileTask implements Runnable {
 
     /**
      * 
-     * @param fromPath
-     * @param toPath
+     * @param file - file to copy
+     * @param from - source directory
+     * @param to - target directory
      */
     public CopyFileTask(File file, Path from, Path to) {
         this.fromPath = from;

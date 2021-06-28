@@ -21,7 +21,7 @@ public class ArgumentsParser {
     private final int DefaultThreadsCount = 10;
     
     /**
-     * @param arguments
+     * @param arguments - arguments passed by the user for source and target paths and number of threads
      */
     public ArgumentsParser(String[] arguments) {
         this.arguments = arguments;
@@ -29,9 +29,8 @@ public class ArgumentsParser {
     
     /**
      * Parse the arguments and return the ArgumentsConfig instance
-     * @param arguments
-     * @return ArgumentsConfig
-     * @throws Exception
+     * @return ArgumentsConfig - config class after successfully parsing arguments
+     * @throws Exception - argument is not provided or in wrong format
      */
     public ArgumentsConfig parse() throws Exception {
         // Define default thread count
